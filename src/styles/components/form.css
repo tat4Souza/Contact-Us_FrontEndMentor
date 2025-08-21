@@ -1,0 +1,17 @@
+.form__container {
+  background-color: var(--White);
+  padding: 3.5rem;
+  border-radius: 1rem;
+  width: 40%;
+}
+
+.form__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 1.6rem;
+  grid-row-gap: 3rem;
+}
+
+.grid--full {
+  grid-column: 1 / span 2;
+}

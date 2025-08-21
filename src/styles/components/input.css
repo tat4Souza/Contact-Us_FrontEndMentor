@@ -1,0 +1,36 @@
+.input__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-container--check {
+  display: flex;
+  gap: 2rem;
+}
+
+.float-label {
+  color: var(--Grey-900);
+  font-size: 1.4rem;
+}
+
+.float-label span {
+  color: var(--Green-600);
+  margin-left: 0.5rem;
+}
+
+.input {
+  background-color: var(--White);
+  padding: 1.5rem 1rem;
+  border-radius: 0.8rem;
+  outline: none;
+  border: 1px solid var(--Grey-500);
+  caret-color: var(--Green-600);
+  color: var(--Grey-900);
+  width: 100%;
+}
+
+.input--text-area {
+  height: 10rem;
+  resize: none;
+}
