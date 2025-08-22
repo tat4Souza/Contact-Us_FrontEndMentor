@@ -1,5 +1,6 @@
 import Button from "./components/Button";
 import LabelInput from "./components/LabelInput";
+import QueryRadio from "./components/QueryRadio";
 import TextArea from "./components/TextArea";
 import TextInput from "./components/TextInput";
 
@@ -17,6 +18,12 @@ function App() {
           </LabelInput>
           <LabelInput title="Email Address" className="grid--full">
             <TextInput />
+          </LabelInput>
+          <LabelInput title="Query Type" className="grid--full">
+            <div className="row-flex">
+              <QueryRadio title="General Enquiry" id="gen_enqui" name="query" />
+              <QueryRadio title="Support Request" id="sup_reque" name="query" />
+            </div>
           </LabelInput>
           <LabelInput title="Message" className="grid--full">
             <TextArea />

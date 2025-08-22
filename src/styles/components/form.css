@@ -15,3 +15,8 @@
 .grid--full {
   grid-column: 1 / span 2;
 }
+
+.row-flex {
+  display: flex;
+  gap: 1.6rem;
+}
