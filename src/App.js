@@ -15,7 +15,7 @@ function App() {
           <LabelInput title="Last Name">
             <TextInput />
           </LabelInput>
-          <LabelInput title="E-mail" className="grid--full">
+          <LabelInput title="Email Address" className="grid--full">
             <TextInput />
           </LabelInput>
           <LabelInput title="Message" className="grid--full">
@@ -23,8 +23,8 @@ function App() {
           </LabelInput>
 
           <div className="input-container--check grid--full">
-            <input type="checkbox" />
-            <label className="float-label">
+            <input type="checkbox" id="consent" />
+            <label for="consent" className="float-label">
               I consent to being contacted by the team
               <span>*</span>
             </label>

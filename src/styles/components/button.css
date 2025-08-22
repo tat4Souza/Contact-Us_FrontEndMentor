@@ -10,4 +10,10 @@
   letter-spacing: 1.5px;
   color: var(--Green-200);
   cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--Grey-900);
 }

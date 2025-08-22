@@ -6,7 +6,45 @@
 
 .input-container--check {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+}
+
+.input-container--check label {
+  cursor: pointer;
+  display: flex;
+}
+
+.input-container--check input[type="checkbox"] {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+}
+
+.input-container--check label::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid var(--Grey-500);
+  margin-right: 2rem;
+  border-radius: 2px;
+  transition: 0.2s ease;
+  color: transparent;
+  font-size: 8px;
+}
+
+.input-container--check label:hover::before,
+.input-container--check input[type="checkbox"]:hover + label::before {
+  border-color: var(--Green-600);
+}
+
+.input-container--check input[type="checkbox"]:checked + label::before {
+  content: "\002714";
+  background-color: var(--Green-600);
+  border-color: var(--Green-600);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--Green-200);
 }
 
 .float-label {
@@ -28,6 +66,11 @@
   caret-color: var(--Green-600);
   color: var(--Grey-900);
   width: 100%;
+}
+
+.input:hover,
+input:focus {
+  border-color: var(--Green-600);
 }
 
 .input--text-area {
