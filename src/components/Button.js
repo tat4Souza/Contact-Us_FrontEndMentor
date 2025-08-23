@@ -1,9 +1,15 @@
 import classNames from "classnames";
 
-function Button({ label, className }) {
+function Button({ label, labelLoading, className, isSubmitting }) {
   return (
-    <button type="submit" className={classNames("button", className)}>
-      {label}
+    <button
+      type="submit"
+      disabled={isSubmitting}
+      className={classNames("button", className, {
+        "button--disabled": isSubmitting,
+      })}
+    >
+      {isSubmitting ? labelLoading : label}
     </button>
   );
 }

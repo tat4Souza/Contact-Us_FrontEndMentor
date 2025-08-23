@@ -3,14 +3,17 @@ import Button from "./components/Button";
 import LabelInput from "./components/LabelInput";
 import QueryRadio from "./components/QueryRadio";
 import TextInput from "./components/TextInput";
+import Modal from "./components/Modal";
 import { useForm, Controller } from "react-hook-form";
+import { useState } from "react";
 
 function App() {
   const {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: {
       firstName: "",
@@ -21,9 +24,14 @@ function App() {
       consent: false,
     },
   });
+  const [isOpen, setIsOpen] = useState(false);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log(data);
+    reset();
+    setIsOpen(true);
+    setTimeout(() => setIsOpen(false), 2000);
   };
 
   return (
@@ -37,7 +45,11 @@ function App() {
               control={control}
               rules={{ required: "This field is required" }}
               render={({ field }) => (
-                <TextInput invalid={errors.firstName} {...field} />
+                <TextInput
+                  disabled={isSubmitting}
+                  invalid={errors.firstName}
+                  {...field}
+                />
               )}
             />
             {errors.firstName && (
@@ -50,7 +62,11 @@ function App() {
               control={control}
               rules={{ required: "This field is required" }}
               render={({ field }) => (
-                <TextInput invalid={errors.lastName} {...field} />
+                <TextInput
+                  disabled={isSubmitting}
+                  invalid={errors.lastName}
+                  {...field}
+                />
               )}
             />
             {errors.lastName && (
@@ -69,7 +85,11 @@ function App() {
                 },
               }}
               render={({ field }) => (
-                <TextInput invalid={errors.email} {...field} />
+                <TextInput
+                  disabled={isSubmitting}
+                  invalid={errors.email}
+                  {...field}
+                />
               )}
             />
             {errors.email && (
@@ -82,6 +102,7 @@ function App() {
                 control={control}
                 title="Genreal Enquiry"
                 id="gen_enqui"
+                disabled={isSubmitting}
                 rules={{ required: "Please select a query type" }}
                 name="query"
               />
@@ -89,6 +110,7 @@ function App() {
                 control={control}
                 title="Support Request"
                 id="sup_reque"
+                disabled={isSubmitting}
                 rules={{ required: "Please select a query type" }}
                 name="query"
               />
@@ -101,7 +123,9 @@ function App() {
             <textarea
               className={classNames("input input--text-area", {
                 "input--invalid": errors.message,
+                "input--disabled": isSubmitting,
               })}
+              disabled={isSubmitting}
               {...register("message", { required: "This field is required" })}
             />
             {errors.message && (
@@ -110,7 +134,11 @@ function App() {
           </LabelInput>
 
           <LabelInput empty className="grid--full">
-            <div className="input-container--check ">
+            <div
+              className={classNames("input-container--check ", {
+                "input--disabled": isSubmitting,
+              })}
+            >
               <input
                 type="checkbox"
                 id="consent"
@@ -129,9 +157,15 @@ function App() {
             )}
           </LabelInput>
 
-          <Button label="Submit" className="grid--full" />
+          <Button
+            label="Submit"
+            labelLoading="Loading..."
+            isSubmitting={isSubmitting}
+            className="grid--full"
+          />
         </form>
       </div>
+      <Modal isOpen={isOpen} />
     </div>
   );
 }
