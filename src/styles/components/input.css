@@ -108,3 +108,7 @@ input:focus {
   height: 10rem;
   resize: none;
 }
+
+.input--invalid {
+  border-color: var(--Red) !important;
+}
