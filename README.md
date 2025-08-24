@@ -30,6 +30,8 @@ O projeto foca em:
 
 ### Vídeo
 
+[![Formulário Funcionando](./public/Contact%20Us%20-%20thumbnail.png)](https://youtu.be/EEfzHXOkUDc)
+
 ## Meu Processo
 
 Para realizar o projeto, criei-o com o uso do create-react-app. Usei o React para criar componentes de inputs personalizados e a biblioteca react-hook-form para facilitar o controle do formulário e suas funcionalidades. Durante a realização do desafio, consegui aprender um pouco mais sobre como estilizar inputs de tipo radio e checkbox sem perder a acessibilidade pelo screen reader. Além disso, tive que descobrir como usar as refs do React com as refs do RHF para conseguir adicionar a navegação pelo teclado nesses mesmos tipos de inputs. Já tenho uma certa intimidade com css, mas essa desafio continuou sendo uma ótima oportunidade para praticar edições em designs de cenários reais.
