@@ -5,7 +5,7 @@ import QueryRadio from "./components/QueryRadio";
 import TextInput from "./components/TextInput";
 import Modal from "./components/Modal";
 import { useForm, Controller } from "react-hook-form";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const {
