@@ -6,6 +6,12 @@
   border-radius: 1rem;
 }
 
+@media (max-width: 25em) {
+  .toast {
+    width: 70%;
+  }
+}
+
 .toast__title {
   width: 100%;
   display: flex;

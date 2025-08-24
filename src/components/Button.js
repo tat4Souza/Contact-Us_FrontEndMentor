@@ -8,6 +8,7 @@ function Button({ label, labelLoading, className, isSubmitting }) {
       className={classNames("button", className, {
         "button--disabled": isSubmitting,
       })}
+      tabIndex={0}
     >
       {isSubmitting ? labelLoading : label}
     </button>

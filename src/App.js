@@ -5,7 +5,7 @@ import QueryRadio from "./components/QueryRadio";
 import TextInput from "./components/TextInput";
 import Modal from "./components/Modal";
 import { useForm, Controller } from "react-hook-form";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function App() {
   const {
@@ -13,6 +13,8 @@ function App() {
     handleSubmit,
     control,
     reset,
+    watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: {
@@ -25,6 +27,8 @@ function App() {
     },
   });
   const [isOpen, setIsOpen] = useState(false);
+
+  console.log(errors);
 
   const onSubmit = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -102,7 +106,7 @@ function App() {
                 control={control}
                 title="Genreal Enquiry"
                 id="gen_enqui"
-                disabled={isSubmitting}
+                isDisabled={isSubmitting}
                 rules={{ required: "Please select a query type" }}
                 name="query"
               />
@@ -110,7 +114,7 @@ function App() {
                 control={control}
                 title="Support Request"
                 id="sup_reque"
-                disabled={isSubmitting}
+                isDisabled={isSubmitting}
                 rules={{ required: "Please select a query type" }}
                 name="query"
               />
@@ -138,6 +142,17 @@ function App() {
               className={classNames("input-container--check ", {
                 "input--disabled": isSubmitting,
               })}
+              tabIndex={0}
+              role="checkbox"
+              aria-checked={watch("consent")}
+              onKeyDown={(e) => {
+                if (e.key === " " || e.key === "Enter") {
+                  e.preventDefault();
+                  setValue("consent", !watch("consent"), {
+                    shouldValidate: true,
+                  });
+                }
+              }}
             >
               <input
                 type="checkbox"
@@ -146,8 +161,9 @@ function App() {
                   required:
                     "To submit this form, please consent to being contacted",
                 })}
+                tabIndex={-1}
               />
-              <label for="consent" className="float-label">
+              <label htmlFor="consent" className="float-label">
                 I consent to being contacted by the team
                 <span>*</span>
               </label>

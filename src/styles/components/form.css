@@ -5,6 +5,24 @@
   width: 45%;
 }
 
+@media (max-width: 75em) {
+  .form__container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 50em) {
+  .form__container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 28.125em) {
+  .form__container {
+    width: 90%;
+  }
+}
+
 .form__content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -25,4 +43,15 @@
   font-size: 1.3rem;
   margin-top: 0.5rem;
   color: var(--Red);
+}
+
+@media (max-width: 37.5em) {
+  .form__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row-flex {
+    flex-direction: column;
+  }
 }

@@ -9,7 +9,17 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  outline: none;
   transition: all 0.2s ease;
+}
+
+.input--text:focus,
+.input--text-area:focus {
+  outline: 2px solid #0c7d6933;
+}
+
+.input-container--radio:focus {
+  outline: 2px solid #0c7d6933;
 }
 
 .input-container--radio:has(input[type="radio"]:checked) {
@@ -55,6 +65,10 @@
 .input-container--radio label:hover::before,
 .input-container--radio:hover input[type="radio"] + label::before {
   border: 2px solid var(--Green-600);
+}
+
+.input-container--check:focus input[type="checkbox"] + label::before {
+  outline: 2px solid #0c7d6933;
 }
 
 .input-container--check label:hover::before,
@@ -122,8 +136,12 @@ input:focus {
 }
 
 .input--text-area {
-  height: 10rem;
+  height: 11rem;
   resize: none;
+
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  font-family: var(--default-family);
 }
 
 .input--invalid {

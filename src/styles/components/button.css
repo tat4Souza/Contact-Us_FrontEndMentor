@@ -26,3 +26,8 @@
 .button--disabled.button:hover {
   background-color: var(--Green-600);
 }
+
+.button:focus {
+  outline: 2px solid var(--Green-600);
+  border: 1px solid var(--White);
+}

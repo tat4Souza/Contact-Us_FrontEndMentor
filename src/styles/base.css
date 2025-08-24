@@ -10,6 +10,12 @@ html {
   font-size: 62.5%;
 }
 
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
 body {
   box-sizing: border-box;
   font-family: var(--default-family);
@@ -23,7 +29,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
+  padding: 5rem 0 5rem 0;
 }
 
 h1 {
